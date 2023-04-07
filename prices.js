@@ -22,7 +22,7 @@ const priceSchema = new mongoose.Schema({
 const Price = mongoose.model('Price', priceSchema);
 
 // cron job to fetch price every 10 minutes
-new CronJob('0 */1 * * * *', async function() {
+new CronJob('0 */10 * * * *', async function() {
   try {
     const response = await axios.get(
       'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=inr'
