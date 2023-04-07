@@ -16,6 +16,9 @@ db.once('open', function() {
   console.log('Connected to MongoDB');
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello, Welcome to Swastiks api service');
+});
 // Route to fetch transactions
 const transactionsRouter = require('./routes/transactions');
 app.use('/transactions', transactionsRouter);
@@ -32,3 +35,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
+
